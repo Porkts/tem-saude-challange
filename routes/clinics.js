@@ -6,8 +6,19 @@ const { clinics } = require('../models');
  * POST returns all clinics
  */
 router.get('/', async function (req, res, next) {
-  const allClinics = await clinics.findAll({});
-  res.json(allClinics);
+  const { city } = req.query
+  var clinicas = []
+
+  if (city) {
+    clinicas = await clinics.findAll({
+      where: {
+        cidade: city
+      }
+    })
+  } else {
+    clinicas = await clinics.findAll({});
+  }
+  res.json(clinicas);
 });
 
 /**

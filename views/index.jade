@@ -23,6 +23,10 @@ block content
         input(type='text',id="lng", name='longitude', placeholder='Longitude' disabled)
       button(type="submit", id="registerClinic") Cadastrar
 
+  #searchClinics
+    input(id="searchLocality", placeholder="Endereço")
+    button(type="submit", id="searchClinicsBtn") Buscar
+
   #clinics 
     div(class="clinicCard", id="clinicTemplate", style="display:none")
       h2(id="clinicName")

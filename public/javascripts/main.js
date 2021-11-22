@@ -12,7 +12,7 @@ window.onload = () => {
   map = initMap(); // initialize map
 
   getAllClinics().then((clinics) => {
-    drawAllClinics(clinics);
+    drawClinics(clinics);
   });
 
   registerEvents();
@@ -21,7 +21,35 @@ window.onload = () => {
 function registerEvents() {
   document.getElementById('searchAddress').addEventListener('click', searchAddress);
 
+  document.getElementById('searchClinicsBtn').addEventListener('click', searchClinics);
+
   document.getElementById('clinicForm').addEventListener('submit', submitClinicForm);
+}
+
+async function searchClinics(e) {
+  e.preventDefault()
+  let address = document.getElementById('searchLocality').value
+
+  if (addressIsInvalid(address))  return alert('Digite um endereço válido');
+
+  const location = await getLocation(address);
+
+  if (notFoundAddress(location)) return alert('Endereço não encontrado');
+
+  var city = location.results[0].address_components.filter(component => component.types.includes('locality') || component.types.includes('administrative_area_level_2'))
+
+  if (city.length == 0) return alert('Cidade não encontrada!')
+
+  searchClinicsByCity(city[0].long_name).then((clinics) => {
+    drawClinics(clinics);
+  });
+}
+
+async function searchClinicsByCity(city) {
+  let url = `${APPLICATION_URL}clinics?city=${city}`;
+  const response = await fetch(url);
+  const data = await response.json();
+  return data;
 }
 
 async function searchAddress(e) {
@@ -95,11 +123,11 @@ async function submitClinicForm(e) {
   }
 
   getAllClinics().then((clinics) => {
-    drawAllClinics(clinics);
+    drawClinics(clinics);
   });
 }
 
-function drawAllClinics(clinics) {
+function drawClinics(clinics) {
   if (hasMarkers()) {
     clearMakers();
     clearClinicCards();

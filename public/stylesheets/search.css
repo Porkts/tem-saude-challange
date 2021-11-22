@@ -1,0 +1,25 @@
+#searchClinics {
+  position: fixed;
+  padding: 5px 5px;
+  background-color: white;
+  right: 30px;
+  top: 10px;
+  z-index: 450;
+}
+
+#searchClinics button {
+  padding: 10px;
+  border: 0px;
+  text-transform: uppercase;
+}
+
+#searchClinics input {
+  margin: 5px;
+  padding: 10px 15px;
+  border: 0px;
+  border-bottom: 1px solid rgba(82, 82, 82, 0.589);
+}
+
+#searchClinics input::placeholder {
+  text-transform: uppercase;
+}
