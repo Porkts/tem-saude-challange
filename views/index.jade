@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  #maps
+
+  #registerClininc
+    h3 Cadastro de Clínica
+    form(id="clinicForm", action="/clinics", method="post")
+      input(type='text', id='nome', placeholder='Nome')
+      input(type='text', id='cnpj', placeholder='CNPJ')
+      input(type='hidden', id='logradouro', placeholder='logradouro')
+      input(type='hidden', id='numero', placeholder='numero')
+      input(type='hidden', id='bairro', placeholder='bairro')
+      input(type='hidden', id='complemento', placeholder='complemento')
+      input(type='hidden', id='cidade', placeholder='cidade')
+      input(type='hidden', id='estado', placeholder='estado')
+      input(type='hidden', id='pais', placeholder='pais')
+      div(class="form-group")
+        input(type='text', id="address", name='address', placeholder='Endereço')
+        button(id="searchAddress") Buscar
+      div(id="latLngInput" class="form-group")
+        input(type='text',id="lat", name='latitude', placeholder='Latitude' disabled)
+        input(type='text',id="lng", name='longitude', placeholder='Longitude' disabled)
+      button(type="submit", id="registerClinic") Cadastrar
+
+  #clinics 
+    div(class="clinicCard", id="clinicTemplate", style="display:none")
+      h2(id="clinicName")
+      p(id="clinicAddress")
+      p(class="clinicLatLng")
+      
+

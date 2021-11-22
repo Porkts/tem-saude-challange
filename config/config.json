@@ -1,0 +1,10 @@
+{
+  "development": {
+    "username": "root_password",
+    "password": "root_password",
+    "database": "temsaude",
+    "host": "127.0.0.1",
+    "port": "5432",
+    "dialect": "postgres"
+  }
+}

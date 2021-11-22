@@ -1,0 +1,61 @@
+#registerClininc {
+  position: fixed;
+  top: 50px;
+  left: 100px;
+  background-color: rgba(255, 255, 255);
+  z-index: 500;
+  border-radius: 10px;
+  padding: 10px 20px;
+  box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+#registerClininc > h3 {
+  text-align: center;
+  color: rgb(63, 63, 63);
+  text-transform: uppercase;
+}
+
+#clinicForm {
+  display: flex;
+  flex-direction: column;
+  text-transform: uppercase;
+}
+
+#clinicForm input {
+  padding: 20px 20px;
+  margin: 10px 0px;
+  border: 0px;
+  border-bottom: 1px solid rgba(82, 82, 82, 0.589);
+}
+
+#clinicForm input::placeholder {
+  text-transform: uppercase;
+}
+
+#clinicForm button {
+  padding: 20px 20px;
+  border: 0px;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+
+#clinicForm button:hover {
+  border: 1px solid rgba(48, 48, 48, 0.589);
+  cursor: pointer;
+}
+
+#clinicForm button[type='submit'] {
+  margin-top: 20px;
+}
+
+#latLngInput {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+#latLngInput input {
+  width: 100px;
+  margin: 0px 10px;
+}
